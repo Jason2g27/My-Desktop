@@ -27,10 +27,12 @@
     var day = today.getDate();
     var month = today.getMonth()+1;
     var year = today.getFullYear();
-    if(dd<10) 
+    if(day<10){
         day='0'+day;
-    if(mm<10) 
+    }
+    if(month<10){
         month='0'+month;
+    }
     $("#date").html(month+sep+day+sep+year);
 </script>
 </html>
