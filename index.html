@@ -34,6 +34,13 @@
 </body>
 
 <script>
+    try {
+        var loadNotes = localStorage.getItem("notes");
+    }
+    catch(err) {
+        var loadNotes = "Enter your notes here and click 'Save'";
+    }
+    $("#notes-area").val(loadNotes);
     var sep = "/"
     var today = new Date();
     var day = today.getDate();
@@ -46,6 +53,13 @@
         month='0'+month;
     }
     $("#date").html(month+sep+day+sep+year);
+
+    function saveNotes(){
+        var currentNotes = $("#note-area").val();
+        localStorage.setItem("notes", currentNotes);
+    }
+
+    $("#saveNoteBtn").click(saveNotes)
 </script>
 </html>
 
